@@ -1,6 +1,42 @@
-.terraform/
+# --- Terraform ---
+# Local .terraform directories (provider plugins, modules)
+**/.terraform/*
+
+# State files can contain resource internals and account identifiers;
+# committed evidence is plan JSON only — never state.
 *.tfstate
-*.tfstate.backup
+*.tfstate.*
+
+# Local plan output (binary; regenerate with `terraform plan -out tfplan`)
 tfplan
+*.tfplan
+
+# Variable definitions may carry environment-specific identifiers
 *.tfvars
-.terraform.tfstate.lock.info
+*.tfvars.json
+!*.tfvars.example
+
+# Crash logs
+crash.log
+crash.*.log
+
+# Override files (local-only)
+override.tf
+override.tf.json
+*_override.tf
+*_override.tf.json
+
+# CLI config
+.terraformrc
+terraform.rc
+
+# NOTE: .terraform.lock.hcl is intentionally NOT ignored — commit it so
+# CI and collaborators resolve the exact same provider builds.
+
+# --- Local staging (not part of the project) ---
+_to_delete/
+
+# --- OS / editor cruft ---
+desktop.ini
+Thumbs.db
+.DS_Store

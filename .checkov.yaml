@@ -1,0 +1,25 @@
+# Checkov policy configuration.
+#
+# Every skip below is a documented, justified exception — the compliance-as-code
+# equivalent of a risk acceptance. Remove the skip when the roadmap item lands.
+directory:
+  - terraform
+quiet: true
+compact: true
+skip-check:
+  # Lab scope: lifecycle rules are a roadmap item (see README "Limitations").
+  - CKV2_AWS_61
+  # Event notifications are not applicable to this lab's data flow.
+  - CKV2_AWS_62
+  # Cross-region replication is out of scope for a single-region lab.
+  - CKV_AWS_144
+  # AES-256 (SSE-S3) is a deliberate, documented choice; the CMEK upgrade
+  # path is shown in main.tf and implemented in terraform-modules-for-compliance.
+  - CKV_AWS_145
+  # The log bucket deliberately enables ACLs (log-delivery-write) — the legacy
+  # S3 server-access-logging mechanism. Migration to bucket-policy grants for
+  # logging.s3.amazonaws.com is on the roadmap.
+  - CKV2_AWS_65
+  # Versioning on the access-log bucket is intentionally omitted: logs are
+  # append-only by nature and the data bucket (the audit subject) is versioned.
+  - CKV_AWS_21

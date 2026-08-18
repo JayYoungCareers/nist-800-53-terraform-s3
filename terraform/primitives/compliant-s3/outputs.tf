@@ -1,6 +1,14 @@
-output "bucket_arn"     { value = aws_s3_bucket.primary.arn }
-output "bucket_name"    { value = aws_s3_bucket.primary.id }
-output "log_bucket_arn" { value = aws_s3_bucket.log.arn }
+output "bucket_arn" {
+  value = aws_s3_bucket.primary.arn
+}
+
+output "bucket_name" {
+  value = aws_s3_bucket.primary.id
+}
+
+output "log_bucket_arn" {
+  value = aws_s3_bucket.log.arn
+}
 
 output "encryption_algorithm" {
   description = "Server-side encryption algorithm in effect (SC-28 attestation)."
